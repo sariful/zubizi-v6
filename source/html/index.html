@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="min-h-screen">
+        <section class="text-center bg-gray-800">
+            <header class="text-white py-3">
+                <div class="container mx-auto px-4 flex justify-between items-center">
+                    <div>
+                        <img src="https://zubizi.com/assets/img/white-logo.png" alt="Zubizi Web Solutions"
+                            style="width: 40px;" />
+                    </div>
+                    <div>
+                        <div role="button" tabindex="0" class="cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="container mx-auto py-5">
+                <div class="w-8/12 mx-auto">
+                    <h1 class="text-6xl font-bold text-gray-400 my-10">
+                        Optimize Your Business Operations with Our Comprehensive
+                        Software Solutions
+                    </h1>
+                    <p class="text-lg text-gray-400 my-10">
+                        Zubizi Web Solutions offers comprehensive software solutions
+                        that can help you efficiently manage your manufacturing
+                        processes, optimize your billing and inventory management,
+                        and enhance your overall business efficiency.
+                    </p>
+                    <picture>
+                        <source media="(max-width: 650px)"
+                            srcset="https://zubizi.com/assets/img/banners/dashboard-clay-mac.mobile.png" />
+                        <img loading="lazy" class="img-fluid wow fadeInUp animated"
+                            style="visibility:visible;animation-name:fadeInUp"
+                            src="https://zubizi.com/assets/img/banners/dashboard-clay-mac.png"
+                            alt="Best GST billing and Billing Software" />
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section class="products container mx-auto py-16">
+            <h2 class="text-4xl font-bold text-center mb-8">Our Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="product-card bg-white rounded-lg shadow-md p-6">
+                <img src="path/to/garment-erp-image.jpg" alt="Garment Manufacturing ERP Software" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-2xl font-semibold mb-2">Garment Manufacturing ERP Software</h3>
+                <p class="text-gray-700">Simplifies and optimizes every step of the garment production process.</p>
+                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">Learn More</a>
+              </div>
+          
+              <div class="product-card bg-white rounded-lg shadow-md p-6">
+                <img src="path/to/gst-billing-image.jpg" alt="GST Billing Software for Retail Shop" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-2xl font-semibold mb-2">GST Billing Software for Retail Shop</h3>
+                <p class="text-gray-700">A user-friendly solution to optimize invoicing, taxation, and inventory management.</p>
+                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">Learn More</a>
+              </div>
+            </div>
+          </section>
+
+
+        <footer class="bg-gray-800 text-white py-6">
+            <div class="container mx-auto px-4 text-center">
+                <p>&copy; 2024 Zubizi Web Solutions. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const cards = document.querySelectorAll('.group');
+        cards.forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.classList.add('scale-105');
+            });
+            card.addEventListener('mouseout', () => {
+                card.classList.remove('scale-105');
+            });
+        });
+    </script>
+</body>
+
+</html>

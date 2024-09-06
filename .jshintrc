@@ -1,0 +1,11 @@
+{
+    "esversion": 9,
+    "globals": {
+        "$": true,
+        "WOW": true,
+        "Handlebars": true,
+        "PNotify": true,
+        "moment": true
+    },
+    "browser": true
+}
