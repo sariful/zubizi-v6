@@ -9,9 +9,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         'custom-gradient': 'linear-gradient(to right, #FF7E5F, #FEB47B)',
+        'product-gradient': 'linear-gradient(to right, #eeeeee, #ffffff)',
       },
       colors: {
-        cyan: colors.cyan,
       },
     },
   },
