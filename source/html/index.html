@@ -59,7 +59,7 @@
 
                 <div class="mt-10 grid grid-cols-1 sm:grid-cols-12 gap-8">
                     <a href="#"
-                        class="bg-product-gradient sm:flex items-center rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out sm:col-span-7">
+                        class="bg-white sm:flex items-center rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out sm:col-span-7">
                         <div class=" p-10">
                             <h3 class="text-2xl font-bold mb-2">Billing/Invoicing Solution</h3>
                             <p class="mb-4">
@@ -77,8 +77,13 @@
                             <span class="text-blue-600 hover:underline mt-4 inline-block">Learn More</span>
                         </div>
                         <div class="">
-                            <img src="https://zubizi.com/assets/img/banners/dashboard-clay-mac.mobile.png"
-                                alt="Dashboard screenshot of billing software" class="w-full h-auto">
+                            <!-- <img src="https://zubizi.com/assets/img/banners/dashboard-clay-mac.mobile.png"
+                                alt="Dashboard screenshot of billing software" class="w-full h-auto"> -->
+                            <video
+                                src="https://firebasestorage.googleapis.com/v0/b/customer-websites-zubizi.appspot.com/o/zubizi%2Finvoice-video.mp4?alt=media&token=66f9ed53-195f-4220-9c47-5952eb92ca91"
+                                autoplay muted loop class="w-full h-auto">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </a>
                     <a href="javascript:void(0);"
@@ -214,16 +219,118 @@
             </div>
         </section>
 
+        <section class="py-10 px-5 bg-gray-900 ">
+            <div class="container">
+                <div class="w-full max-w-4xl mx-auto">
+                    <!-- Tab Navigation -->
+                    <div class="flex justify-center mb-6">
+                        <button class="tab-btn active-tab text-gray-200 bg-gray-700 px-4 py-2 mx-2 rounded-lg"
+                            data-tab="generic-faq">Generic FAQ</button>
+                        <button class="tab-btn text-gray-200 bg-gray-700 px-4 py-2 mx-2 rounded-lg"
+                            data-tab="garment-faq">For Garment Manufacturers</button>
+                        <button class="tab-btn text-gray-200 bg-gray-700 px-4 py-2 mx-2 rounded-lg"
+                            data-tab="retailer-faq">For Retailers</button>
+                    </div>
+
+                    <!-- FAQ Content -->
+                    <div id="faq-content">
+                        <!-- Generic FAQ -->
+                        <div class="faq-category" id="generic-faq">
+                            <div class="space-y-4">
+                                <!-- FAQ 1 -->
+                                <div class="bg-gray-800 border border-gray-700 rounded-lg">
+                                    <div
+                                        class="faq-question w-full text-left py-4 px-6 bg-gray-700 text-gray-200 cursor-pointer rounded-lg">
+                                        What sectors does your software cater to?
+                                    </div>
+                                    <div class="faq-answer hidden p-6 bg-gray-800 text-gray-300">
+                                        Our software is designed for two sectors: retailers and garment manufacturers.
+                                    </div>
+                                </div>
+                                <!-- Add more generic FAQs -->
+                            </div>
+                        </div>
+
+                        <!-- For Garment Manufacturers -->
+                        <div class="faq-category hidden" id="garment-faq">
+                            <div class="space-y-4">
+                                <!-- FAQ 1 -->
+                                <div class="bg-gray-800 border border-gray-700 rounded-lg">
+                                    <div
+                                        class="faq-question w-full text-left py-4 px-6 bg-gray-700 text-gray-200 cursor-pointer rounded-lg">
+                                        How does the raw material inventory work for garment manufacturers?
+                                    </div>
+                                    <div class="faq-answer hidden p-6 bg-gray-800 text-gray-300">
+                                        When you create a purchase entry, raw materials are added to your inventory...
+                                    </div>
+                                </div>
+                                <!-- Add more garment manufacturer FAQs -->
+                            </div>
+                        </div>
+
+                        <!-- For Retailers -->
+                        <div class="faq-category hidden" id="retailer-faq">
+                            <div class="space-y-4">
+                                <!-- FAQ 1 -->
+                                <div class="bg-gray-800 border border-gray-700 rounded-lg">
+                                    <div
+                                        class="faq-question w-full text-left py-4 px-6 bg-gray-700 text-gray-200 cursor-pointer rounded-lg">
+                                        How does the inventory management system work for retailers?
+                                    </div>
+                                    <div class="faq-answer hidden p-6 bg-gray-800 text-gray-300">
+                                        For retailers, our software automatically updates inventory levels when you make
+                                        a purchase...
+                                    </div>
+                                </div>
+                                <!-- Add more retailer FAQs -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
         <footer class="bg-gray-800 text-white py-6">
             <div class="container mx-auto px-4 text-center">
                 <p>&copy; 2024 Zubizi Web Solutions. All rights reserved.</p>
             </div>
         </footer>
     </main>
-
     <script>
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const faqCategories = document.querySelectorAll('.faq-category');
 
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tab = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active-tab', 'bg-blue-500'));
+
+                // Hide all FAQ categories
+                faqCategories.forEach(category => category.classList.add('hidden'));
+
+                // Show the clicked tab's category
+                document.getElementById(tab).classList.remove('hidden');
+                button.classList.add('active-tab', 'bg-blue-500');
+            });
+        });
+
+        // Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                } else {
+                    answer.classList.add('hidden');
+                }
+            });
+        });
     </script>
+
 </body>
 
 </html>
