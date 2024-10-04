@@ -7,8 +7,23 @@ body {
     font-family: 'Raleway', 'Roboto', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 .container {
     margin-left: auto;
     margin-right: auto;
+    /* max-width: 991px !important; */
+}
+
+.parallax-video {
+    transform: translateZ(0);
+    /* Trigger GPU acceleration */
+    will-change: transform;
+    /* Optional: Set a specific height if needed */
+    height: 100vh;
+    /* Change to desired height */
+    min-height: 100vh;
+    /* Make sure it covers full height */
 }
