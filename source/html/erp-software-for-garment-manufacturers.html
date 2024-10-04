@@ -354,6 +354,14 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('scroll', function () {
+            const scrollPosition = window.pageYOffset;
+            const video = document.querySelector('.parallax-video');
+            video.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust the speed by changing the multiplier (0.5)
+        });
+    </script>
 </body>
 
 </html>
