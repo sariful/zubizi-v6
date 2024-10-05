@@ -9,6 +9,7 @@
     "gulp-newer": "^1.4.0",
     "gulp-nodemon": "^2.5.0",
     "gulp-postcss": "^10.0.0",
+    "gulp-preprocess": "^5.0.0",
     "gulp-uglify": "^3.0.2",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0"

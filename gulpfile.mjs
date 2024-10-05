@@ -16,6 +16,7 @@ import uglify from "gulp-uglify";
 import postcss from "gulp-postcss";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
+import preprocess from "gulp-preprocess";
 import cleanCSS from "gulp-clean-css";
 
 
@@ -28,6 +29,7 @@ const folder = {
 gulp.task("html", () => {
     try {
         return gulp.src(folder.src + "html/**/*.html")
+            .pipe(preprocess())
             .pipe(htmlmin({
                 collapseWhitespace: true,
                 removeComments: true,
@@ -99,8 +101,8 @@ gulp.task("start", function (done) {
 });
 
 gulp.task("watch", function () {
-    gulp.watch([folder.src + "html/**/*.html", folder.src + "partials/**/*.html"], gulp.series("html"));
-    gulp.watch([folder.src + "html/**/*.html", folder.src + "partials/**/*.html"], gulp.series("css"));
+    gulp.watch([folder.src + "html/**/*.html", folder.src + "partials/*.html"], gulp.series("html"));
+    gulp.watch([folder.src + "html/**/*.html", folder.src + "partials/*.html"], gulp.series("css"));
     gulp.watch(folder.src + "js/**/*", gulp.parallel("js"));
     gulp.watch(folder.src + "extras/**/*", gulp.parallel("extras"));
     gulp.watch(folder.src + "img/**/*", gulp.parallel("img"));
