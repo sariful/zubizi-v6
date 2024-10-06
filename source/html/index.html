@@ -279,38 +279,6 @@
 
         <!-- @include ../partials/footer.html -->
     </main>
-    <script>
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const faqCategories = document.querySelectorAll('.faq-category');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const tab = button.getAttribute('data-tab');
-
-                // Remove active class from all buttons
-                tabButtons.forEach(btn => btn.classList.remove('active-tab', 'bg-blue-500'));
-
-                // Hide all FAQ categories
-                faqCategories.forEach(category => category.classList.add('hidden'));
-
-                // Show the clicked tab's category
-                document.getElementById(tab).classList.remove('hidden');
-                button.classList.add('active-tab', 'bg-blue-500');
-            });
-        });
-
-        // Accordion Logic
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                if (answer.classList.contains('hidden')) {
-                    answer.classList.remove('hidden');
-                } else {
-                    answer.classList.add('hidden');
-                }
-            });
-        });
-    </script>
 
 </body>
 
