@@ -1,7 +1,9 @@
 document.addEventListener('scroll', function () {
     const scrollPosition = window.scrollY;
     const video = document.querySelector('.parallax-video');
-    video.style.transform = `translateY(${scrollPosition * 0.6}px)`; // Adjust the speed by changing the multiplier (0.5)
+    if (video) {
+        video.style.transform = `translateY(${scrollPosition * 0.6}px)`; // Adjust the speed by changing the multiplier (0.5)
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
