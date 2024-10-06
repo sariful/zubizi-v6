@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentIndex < carousel.children.length - 1) {
             currentIndex++;
             updateCarousel();
+        } else {
+            currentIndex = 0;
+            updateCarousel();
         }
     });
 });
