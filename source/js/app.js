@@ -4,7 +4,18 @@ document.addEventListener('scroll', function () {
     if (video) {
         video.style.transform = `translateY(${scrollPosition * 0.6}px)`; // Adjust the speed by changing the multiplier (0.5)
     }
+
+    
+    const parallaxDiv = document.querySelectorAll('.parallax-div');
+    if (parallaxDiv) {
+        parallaxDiv.forEach(obj => {
+            const parallaxValue = obj.dataset.parallax;
+            obj.style.transform = `translateY(${scrollPosition * (parallaxValue || 0.6)}px)`; // Adjust the speed by changing the multiplier (0.5)
+
+        })
+    }
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('carousel-inner');

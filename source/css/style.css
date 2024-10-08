@@ -19,11 +19,13 @@ html {
 
 .parallax-video {
     transform: translateZ(0);
-    /* Trigger GPU acceleration */
     will-change: transform;
-    /* Optional: Set a specific height if needed */
     height: 100vh;
-    /* Change to desired height */
     min-height: 100vh;
-    /* Make sure it covers full height */
+}
+
+.parallax-div {
+    transform: translateZ(0);
+    will-change: transform;
+    /* transition: 100ms; */
 }
