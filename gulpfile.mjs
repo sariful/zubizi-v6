@@ -57,17 +57,6 @@ gulp.task("js", () => {
 });
 
 
-gulp.task("img", () => {
-    return gulp.src(folder.src + "img/**/*")
-        .pipe(imagemin([
-            pngquant({ quality: [0.6, 0.8] }),
-            mozjpeg({ quality: 75, progressive: true }),
-        ]))
-        .pipe(newer(folder.build + "assets/img/"))
-        .pipe(gulp.dest(folder.build + "assets/img/"));
-});
-
-
 gulp.task("extras", () => {
     return gulp.src(folder.src + "extras/**/*")
         .pipe(gulp.dest(folder.build));
@@ -105,10 +94,10 @@ gulp.task("watch", function () {
     gulp.watch([folder.src + "html/**/*.html", folder.src + "partials/*.html"], gulp.series("css"));
     gulp.watch(folder.src + "js/**/*", gulp.parallel("js"));
     gulp.watch(folder.src + "extras/**/*", gulp.parallel("extras"));
-    gulp.watch(folder.src + "img/**/*", gulp.parallel("img"));
+    // gulp.watch(folder.src + "img/**/*", gulp.parallel("img"));
     gulp.watch(folder.src + "css/**/*", gulp.parallel("css"));
 });
 
-gulp.task("build", gulp.series("html", "css", "js", "extras", "img"));
+gulp.task("build", gulp.series("html", "css", "js", "extras"));
 
 gulp.task("default", gulp.parallel("build", "watch", "start"));
