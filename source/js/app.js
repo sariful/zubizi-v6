@@ -67,6 +67,9 @@ tabButtons.forEach(button => {
 
 // Accordion Logic
 document.querySelectorAll('.faq-question').forEach(question => {
+
+    question.nextElementSibling.classList.add("hidden");
+    
     question.addEventListener('click', () => {
         const answer = question.nextElementSibling;
         if (answer.classList.contains('hidden')) {
