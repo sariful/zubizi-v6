@@ -1,4 +1,5 @@
 const cards = document.querySelectorAll('.card');
+
 function scrollEffect() {
     if (window.innerWidth > 768) {
         cards.forEach((currentCard, index) => {
@@ -7,6 +8,7 @@ function scrollEffect() {
 
             const translate = (1 - (index + 1) / 10 * 100) - 70;
             currentCard.children[0].style.transform = `translateY(${-translate}px) scale(1)`;
+            
             if (index < cards.length - 1) {
                 const nextCard = cards[index + 1];
                 const nextOffset = nextCard.offsetTop;
@@ -29,8 +31,6 @@ function scrollEffect() {
     }
 }
 
-window.addEventListener('scroll', () => {
-    scrollEffect();
-});
+window.addEventListener('scroll', scrollEffect);
 window.addEventListener('resize', scrollEffect);
 scrollEffect();
