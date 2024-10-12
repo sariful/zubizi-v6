@@ -6,6 +6,12 @@ const cardData = Array.from(cards).map((card, index) => ({
     index
 }));
 
+const lastCard = cards[cards.length - 1];
+function isLastCardBottomInView() {
+    const rect = lastCard.getBoundingClientRect();
+    return rect.bottom <= window.innerHeight;
+}
+
 function scrollEffect() {
     if (window.innerWidth > 768) {
         cardData.forEach((data, i) => {
@@ -13,14 +19,16 @@ function scrollEffect() {
             const currentOffset = card.offsetTop;
             const currentHeight = card.offsetHeight;
 
-            const translate = baseTranslate - 70;
-            child.style.transform = `translateY(${-translate}px) scale(1)`;
-            
+            if (!isLastCardBottomInView()) {
+                const translate = baseTranslate - 70;
+                child.style.transform = `translateY(${-translate}px) scale(1)`;
+            }
+
             if (index < cardData.length - 1) {
                 const nextCard = cardData[index + 1].card;
                 const nextOffset = nextCard.offsetTop;
 
-                const overlapThreshold = currentOffset + currentHeight - 150;
+                const overlapThreshold = currentOffset + currentHeight - 100;
                 if (nextOffset < overlapThreshold && nextOffset >= currentOffset) {
                     const scaleX2 = ((index + 1) / 100 + 0.95).toFixed(2);
                     const translate2 = baseTranslate - 40;
