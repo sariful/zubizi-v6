@@ -1,4 +1,3 @@
-// const $cards = $('.card');
 const cards = document.querySelectorAll('.card');
 function scrollEffect() {
     if (window.innerWidth > 768) {
@@ -6,53 +5,27 @@ function scrollEffect() {
             const currentOffset = currentCard.offsetTop;
             const currentHeight = currentCard.offsetHeight;
 
-            currentCard.children[0].style.transform = 'scale(1)';
+            const translate = (1 - (index + 1) / 10 * 100) - 70;
+            currentCard.children[0].style.transform = `translateY(${-translate}px) scale(1)`;
             if (index < cards.length - 1) {
                 const nextCard = cards[index + 1];
                 const nextOffset = nextCard.offsetTop;
 
-                const overlapThreshold = currentOffset + currentHeight / 2.5;
+                const overlapThreshold = currentOffset + currentHeight - 150;
                 if (nextOffset < overlapThreshold && nextOffset >= currentOffset) {
-                    const scaleX = ((index + 1) / 100 + 0.92).toFixed(2);
-                    const translate = -(1 - (index + 1) / 10 * 100) - 10;
-                    currentCard.children[0].style.transform = `translateY(${translate}px) scale(${scaleX})`;
+                    const scaleX2 = ((index + 1) / 100 + 0.95).toFixed(2);
+                    const translate2 = (1 - (index + 1) / 10 * 100) - 40;
+                    currentCard.children[0].style.transform = `translateY(${-translate2}px) scale(${scaleX2})`;
+
+                    const overlapThreshold2 = currentOffset + currentHeight / 2.5;
+                    if (nextOffset < overlapThreshold2 && nextOffset >= currentOffset) {
+                        const scaleX3 = ((index + 1) / 100 + 0.92).toFixed(2);
+                        const translate3 = (1 - (index + 1) / 10 * 100) - 10;
+                        currentCard.children[0].style.transform = `translateY(${-translate3}px) scale(${scaleX3})`;
+                    }
                 }
             }
         });
-        /* $cards.each(function (index) {
-            const $currentCard = $(this);
-            const currentOffset = $currentCard.offset().top;
-            const currentHeight = $currentCard.outerHeight();
-
-            $currentCard.children().css('transform', 'scale(1)');
-            if (index < $cards.length - 1) {
-                const $nextCard = $cards.eq(index + 1);
-                const nextOffset = $nextCard.offset().top;
-
-                const overlapThreshold = currentOffset + currentHeight / 3;
-                if (nextOffset < overlapThreshold && nextOffset >= currentOffset) {
-                    const scaleX = ((index + 1) / 100 + 0.92).toFixed(2);
-                    const translate = -(1 - (index + 1) / 10 * 100) + 0;
-                    $currentCard.children().css("transform", `translateY(${translate}px) scale(${scaleX})`);
-                }
-            }
-        }); */
-
-        /*
-        const scrollPosition = window.scrollY;
-        const cardContainer = document.getElementsByClassName("card-container")[0];
-        cards.forEach((card, index) => {
-            const cardTop2 = card.offsetTop;
-            const cardTop = card.getBoundingClientRect().top;
-            if (cardTop <= 20) {
-                const translate = -(1 - (index + 1) / 10 * 100) + 0;
-                const scaleX = ((index + 1) / 100 + 0.92).toFixed(2);
-                card.children[0].style.transform = `translateY(${translate}px) scale(${scaleX})`;
-            } else {
-                card.children[0].style.transform = `translateY(0px) scale(1)`;
-            }
-        });
-        */
     }
 }
 
