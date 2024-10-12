@@ -1,6 +1,4 @@
 const cards = document.querySelectorAll('.card');
-
-// Cache calculations that don't change on scroll
 const cardData = Array.from(cards).map((card, index) => ({
     card,
     child: card.children[0],
