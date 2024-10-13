@@ -5,7 +5,7 @@ document.addEventListener('scroll', function () {
         video.style.transform = `translateY(${scrollPosition * 0.6}px)`; // Adjust the speed by changing the multiplier (0.5)
     }
 
-    
+
     const parallaxDiv = document.querySelectorAll('.parallax-div');
     if (parallaxDiv) {
         parallaxDiv.forEach(obj => {
@@ -69,7 +69,7 @@ tabButtons.forEach(button => {
 document.querySelectorAll('.faq-question').forEach(question => {
 
     question.nextElementSibling.classList.add("hidden");
-    
+
     question.addEventListener('click', () => {
         const answer = question.nextElementSibling;
         if (answer.classList.contains('hidden')) {
@@ -79,3 +79,21 @@ document.querySelectorAll('.faq-question').forEach(question => {
         }
     });
 });
+
+const menuButton = document.getElementById("menu-button");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const closeMenuButtons = document.getElementsByClassName("close-menu");
+
+// Function to open the sidebar
+menuButton.addEventListener("click", () => {
+    sidebar.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
+});
+
+for (let i = 0; i < closeMenuButtons.length; i++) {
+    closeMenuButtons[i].addEventListener("click", function () {
+        sidebar.classList.add("translate-x-full");
+        overlay.classList.add("hidden");
+    });
+}
