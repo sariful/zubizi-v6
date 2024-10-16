@@ -1,11 +1,13 @@
 import gulp from "gulp";
 
+
 import htmlmin from "gulp-htmlmin";
 
 import nodemon from "gulp-nodemon";
 import imagemin from "gulp-imagemin";
 import pngquant from "imagemin-pngquant";
 import mozjpeg from "imagemin-mozjpeg";
+import webp from "gulp-webp";
 
 import newer from "gulp-newer";
 import babel from "gulp-babel";
@@ -25,6 +27,34 @@ const folder = {
     build: "public/"
 };
 
+gulp.task("img", () => {
+    try {
+        return gulp.src(folder.src + "img/**/*", {
+            encoding: false,
+        })
+            .pipe(newer(folder.build + "assets/img/"))
+            .pipe(imagemin([
+                pngquant({ quality: [0.6, 0.8] }),
+                mozjpeg({ quality: 75, progressive: true }),
+            ]))
+            .pipe(webp())
+            .pipe(gulp.dest(folder.build + "assets/img/"));
+    } catch (error) {
+
+    }
+});
+
+gulp.task("video", () => {
+    try {
+        return gulp.src(folder.src + "video/**/*", {
+            encoding: false,
+        })
+            .pipe(newer(folder.build + "assets/video/"))
+            .pipe(gulp.dest(folder.build + "assets/video/"));
+    } catch (error) {
+
+    }
+});
 
 gulp.task("html", () => {
     try {
@@ -58,7 +88,9 @@ gulp.task("js", () => {
 
 
 gulp.task("extras", () => {
-    return gulp.src(folder.src + "extras/**/*")
+    return gulp.src(folder.src + "extras/**/*", {
+        encoding: false
+    })
         .pipe(gulp.dest(folder.build));
 });
 
@@ -94,10 +126,11 @@ gulp.task("watch", function () {
     gulp.watch([folder.src + "html/**/*.html", folder.src + "partials/*.html"], gulp.series("css"));
     gulp.watch(folder.src + "js/**/*", gulp.parallel("js"));
     gulp.watch(folder.src + "extras/**/*", gulp.parallel("extras"));
-    // gulp.watch(folder.src + "img/**/*", gulp.parallel("img"));
+    gulp.watch(folder.src + "img/**/*", gulp.parallel("img"));
+    gulp.watch(folder.src + "video/**/*", gulp.parallel("video"));
     gulp.watch(folder.src + "css/**/*", gulp.parallel("css"));
 });
 
-gulp.task("build", gulp.series("html", "css", "js", "extras"));
+gulp.task("build", gulp.series("html", "css", "js", "extras", "img", "video"));
 
 gulp.task("default", gulp.parallel("build", "watch", "start"));
